@@ -60,7 +60,7 @@ public class Controller {
 							tempName = students.get(option2-1).getName();
 							tempscore = students.get(option2-1).getScore();
 							System.out.println("Student ID : " + tempID);
-							System.out.println("Student name :¡@" + tempName);
+							System.out.println("Student name : " + tempName);
 							System.out.println(pass_fail(tempscore,tempName));
 							System.out.println("This is student " + option2);
 						}
@@ -78,7 +78,7 @@ public class Controller {
 							else if(tempscore < 60)
 								fail = fail + 1;
 							System.out.println("Student ID : " + tempID);
-							System.out.println("Student name :¡@" + tempName);
+							System.out.println("Student name : " + tempName);
 							System.out.println(pass_fail(tempscore,tempName));
 							System.out.println("\r\n");
 						}

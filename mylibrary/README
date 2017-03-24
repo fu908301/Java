@@ -1,0 +1,3 @@
+This is my Java library.
+if you want to use this,please change the package folder to your own project folder,
+and see the makefile to know how to compile and execute.
