@@ -23,10 +23,11 @@ public class Loan extends Transaction{
 		String Stringlimit = Integer.toString(limit);
 		Screen sc = new Screen();
 		sc.displayMessageLine("Your debt : " + Stringdebt);
-		if(limit > 0)
+		if(limit > 0){
 			sc.displayMessageLine("Your loan limit is " + Stringlimit + ".How much do you want to loan?");
+			bk.loan(account); 
+		}	
 		else
 			sc.displayMessageLine("Sorry.You can't loan any money now.Please repay your debt at our counter");
-		bk.loan(account); 
 	}
 }

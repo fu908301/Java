@@ -46,8 +46,6 @@ public class Account {
 			sc.displayMessageLine("Success");
 		}
 	}
-		
-	
 	public void debit(int input){
 		this.totalBalance = this.totalBalance + input;
 	}
@@ -56,11 +54,11 @@ public class Account {
 		int tempdebt = this.debt + input;
 		Screen sc = new Screen();
 		if(creditLevel == 'A' && tempdebt > 12000)
-			sc.displayMessageLine("Transaction error,you dont have enough loan limit");
+			sc.displayMessageLine("Transaction error,you dont have enough loan limit.");
 		else if(creditLevel == 'B' && tempdebt > 9000)
-			sc.displayMessageLine("Transaction error,you dont have enough loan limit");
-		else if(creditLevel == 'B' && tempdebt > 7000)
-			sc.displayMessageLine("Transaction error,you dont have enough loan limit");
+			sc.displayMessageLine("Transaction error,you dont have enough loan limit.");
+		else if(creditLevel == 'C' && tempdebt > 7000)
+			sc.displayMessageLine("Transaction error,you dont have enough loan limit.");
 		else{
 			this.debt = this.debt + input;
 			sc.displayMessageLine("Loan success");

@@ -18,10 +18,6 @@ public class BankDatabase {
 				temp_loc = i;
 				break;
 			}
-			else{
-				System.out.println("Account not exist!");
-				temp_loc = -1;
-			}
 		}
 		return temp_loc;
 	}
@@ -61,6 +57,8 @@ public class BankDatabase {
 	public void credit(int account_input){
 		int dollars;
 		Keypad input = new Keypad();
+		Screen sc = new Screen();
+		sc.displayMessageLine("How much do you want to withdraw?");
 		dollars = input.getInput();
 		accounts[getAccountloc(account_input)].credit(dollars);
 	}
@@ -68,6 +66,8 @@ public class BankDatabase {
 	public void debit(int account_input){
 		int dollars;
 		Keypad input = new Keypad();
+		Screen sc = new Screen();
+		sc.displayMessageLine("How much do you want to deposit?");
 		dollars = input.getInput();
 		accounts[getAccountloc(account_input)].debit(dollars);
 	}

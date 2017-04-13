@@ -13,6 +13,6 @@ public class Balancelnquiry extends Transaction{
 		Screen sc = new Screen();
 		String StringBalance = Integer.toString(balance);
 		sc.displayMessageLine("Balance information");
-		sc.displayMessageLine("Total Balance : "+StringBalance);
+		sc.displayMessageLine("Total Balance : " + StringBalance);
 	}
 }
