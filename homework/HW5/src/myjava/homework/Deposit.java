@@ -6,10 +6,14 @@ public class Deposit extends Transaction{
 		super(accountNumber,bk);
 	}
 	public void execute(){
+		int amount;
+		Keypad kp = new Keypad();
+		Screen sc = new Screen();
 		BankDatabase bk = super.getbk();
 		account = super.getAccountNumber();
-		bk.debit(account);
-		Screen sc = new Screen();
+		sc.displayMessageLine("How much do you want to deposit?");
+		amount = kp.getInput();
+		bk.debit(account,amount);
 		sc.displayMessageLine("Success!");
 	}
 }

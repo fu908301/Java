@@ -9,6 +9,8 @@ public class Loan extends Transaction{
 		int debt;
 		char level;
 		int limit = 0;
+		int amount;
+		Keypad kp = new Keypad();
 		BankDatabase bk = super.getbk();
 		account = super.getAccountNumber();
 		debt = bk.getDebt(account);
@@ -25,7 +27,8 @@ public class Loan extends Transaction{
 		sc.displayMessageLine("Your debt : " + Stringdebt);
 		if(limit > 0){
 			sc.displayMessageLine("Your loan limit is " + Stringlimit + ".How much do you want to loan?");
-			bk.loan(account); 
+			amount = kp.getInput();
+			bk.loan(account,amount); 
 		}	
 		else
 			sc.displayMessageLine("Sorry.You can't loan any money now.Please repay your debt at our counter");

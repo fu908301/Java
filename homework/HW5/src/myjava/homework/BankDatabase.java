@@ -54,29 +54,16 @@ public class BankDatabase {
 		return accounts[getAccountloc(account_input)].getDebt();
 	}
 	
-	public void credit(int account_input){
-		int dollars;
-		Keypad input = new Keypad();
-		Screen sc = new Screen();
-		sc.displayMessageLine("How much do you want to withdraw?");
-		dollars = input.getInput();
-		accounts[getAccountloc(account_input)].credit(dollars);
+	public void credit(int account_input,int amount){
+		accounts[getAccountloc(account_input)].credit(amount);
 	}
 	
-	public void debit(int account_input){
-		int dollars;
-		Keypad input = new Keypad();
-		Screen sc = new Screen();
-		sc.displayMessageLine("How much do you want to deposit?");
-		dollars = input.getInput();
-		accounts[getAccountloc(account_input)].debit(dollars);
+	public void debit(int account_input,int amount){
+		accounts[getAccountloc(account_input)].debit(amount);
 	}
 	
-	public void loan(int account_input){
-		int dollars;
-		Keypad input = new Keypad();
-		dollars = input.getInput();
-		accounts[getAccountloc(account_input)].loan(dollars);
+	public void loan(int account_input,int amount){
+		accounts[getAccountloc(account_input)].loan(amount);
 	}
 }
 	
