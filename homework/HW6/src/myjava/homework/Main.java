@@ -98,6 +98,56 @@ public class Main {
 			}
 		}
 	}
+	
+	static void archer(){
+		Adventurer f = new Archer(70,60,40);
+		Random ran = new Random();
+		int monster_hp = ran.nextInt(151) + 150;
+		int monster_atk = ran.nextInt(6) + 30;
+		System.out.println("[Monster appeared!]");
+		System.out.println("---Adventurer---     ---Monster---");
+		System.out.println("HP : " + f.getHp() + "                  HP : " + monster_hp);
+		System.out.println("ATK : " + f.getAtk() + "                 ATK : " + monster_atk);
+		System.out.println("EVA : " + f.getUnique());
+		System.out.println("---------------       ---------------");
+		while(true){
+			int monster_real_atk = monster_atk + ran.nextInt(11);
+			int atk = f.action();
+			if(atk != 0)
+				monster_hp -= atk;
+			if(monster_hp > 0){
+				int EVA = f.getUnique();
+				int percentage = ran.nextInt(100) + 1;
+				System.out.println("[Monster] : " + monster_real_atk + " damage");
+				if(percentage < EVA)
+					System.out.println("Evasion success!");
+				else {
+					f.setHp(f.getHp() - monster_real_atk);
+					System.out.println("[Archer] : HP - " + monster_real_atk + " points");
+				}
+				
+			}
+			int A_HP = f.getHp();
+			if(A_HP < 0)
+				A_HP = 0;
+			if(monster_hp < 0)
+				monster_hp = 0;
+			System.out.println("---Adventurer---     ---Monster---");
+			System.out.println("HP : " + A_HP + "          HP : " + monster_hp);
+			System.out.println("ATK : " + f.getAtk() + "          ATK : " + monster_atk);
+			System.out.println("EVA : " + f.getUnique());
+			System.out.println("---------------       ---------------");
+			if(monster_hp <= 0){
+				System.out.println("You win");
+				break;
+			}
+			if(A_HP <= 0){
+				System.out.println("You lose");
+				break;
+			}
+		}
+	}
+	
 	public static void main(String[] args){
 		Scanner scan = new Scanner(System.in);
 		int choice;
@@ -112,7 +162,7 @@ public class Main {
 				magician();
 			}
 			else if(choice == 3){
-				System.out.println("This is Archer");
+				archer();
 			}
 			else{ 
 				fighter();
