@@ -2,6 +2,7 @@ package myjava.homework.part1;
 import java.io.*;
 import java.util.*;
 import com.opencsv.*;
+
 public class Part1_Main {
 	public static void main(String [] args){
 		String filename = "query_result.csv";
@@ -34,7 +35,8 @@ public class Part1_Main {
 		}
 		catch(FileNotFoundException e){
 			e.printStackTrace();
-		} catch (IOException e) {
+		} 
+		catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
