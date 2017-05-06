@@ -1,40 +1,27 @@
 package myjava.homework.part2;
 
+import java.util.HashMap;
+
 public class Data_Store {
 	private String id;
-	private int product_A;
-	private int product_B;
-	private int product_C;
+	private HashMap<String, Integer> product_count;
 	public Data_Store(String id){
 		this.id = id;
-		this.product_A = 0;
-		this.product_B = 0;
-		this.product_C = 0;
-	}
-	
-	public int getA(){
-		return this.product_A;
-	}
-	
-	public int getB(){
-		return this.product_B;
-	}
-	
-	public int getC(){
-		return this.product_C;
+		product_count = new HashMap<String, Integer>();
 	}
 	
 	public String getid(){
 		return this.id;
 	}
+	
+	public HashMap<String, Integer> get_data(){
+		return product_count;
+	}
 	public void set_Data(String input){
-		if(input.equals("Product_A"))
-			this.product_A++;
-		else if(input.equals("Product_B"))
-			this.product_B++;
-		else if(input.equals("Product_C"))
-			this.product_C++;
+		final Integer count = product_count.get(input);
+		if(count == null)
+			product_count.put(input, 1);
 		else
-			System.out.println("Some error happened!");
+			product_count.put(input, count + 1);
 	}
 }

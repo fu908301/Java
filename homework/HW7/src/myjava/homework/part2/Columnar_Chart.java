@@ -1,6 +1,7 @@
 package myjava.homework.part2;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.swing.JFrame;
 
@@ -17,6 +18,7 @@ public class Columnar_Chart extends JFrame{
 	private ArrayList<Data_Store> data;
 	private Data_Store one_data;
 	private String id;
+	private HashMap<String, Integer> product_count;
 	public Columnar_Chart(String id ,ArrayList<Data_Store> data){
 		this.data = data;
 		this.id = id;
@@ -35,9 +37,8 @@ public class Columnar_Chart extends JFrame{
 	}
 	void chart(){
 		DefaultCategoryDataset chartData = new DefaultCategoryDataset();
-		chartData.addValue(one_data.getA(), "Count", "Product_A");
-		chartData.addValue(one_data.getB(), "Count", "Product_B");
-		chartData.addValue(one_data.getC(), "Count", "Product_C");
+		for(Object key : product_count.keySet())
+			chartData.addValue(product_count.get(key), "Count", (Comparable) key);
 		try{
 			 JFreeChart chart = ChartFactory.createBarChart3D("What "+ id + " buy" , "Product type" , "Count" , chartData , PlotOrientation.VERTICAL , true , true , false);
 			 ChartPanel chartPanel = new ChartPanel(chart);  
@@ -54,6 +55,7 @@ public class Columnar_Chart extends JFrame{
 		for(int i = 0; i < data.size(); i++){
 			if(id.equals(data.get(i).getid())){
 				this.one_data = this.data.get(i);
+				product_count = one_data.get_data();
 				break;
 			}
 		}
