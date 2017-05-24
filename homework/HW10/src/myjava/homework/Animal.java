@@ -11,7 +11,21 @@ public class Animal <K,T>{
 		this.sex = sex;
 		this.weight = weight;
 	}
+	public K get_blood(){
+		return this.bloodpressure;
+	}
 	
+	public String get_id(){
+		return this.id;
+	}
+	
+	public String get_sex(){
+		return this.sex;
+	}
+	
+	public T get_weight(){
+		return this.weight;
+	}
 	@Override
 	public int hashCode(){
 		return Objects.hash(bloodpressure, id, sex, weight);
@@ -25,7 +39,8 @@ public class Animal <K,T>{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Animal other = (Animal) obj;
+        @SuppressWarnings("unchecked")
+		final Animal<K, T> other = (Animal<K, T>) obj;
         if (!Objects.equals(this.bloodpressure, other.bloodpressure)) {
             return false;
         }
@@ -43,6 +58,6 @@ public class Animal <K,T>{
 	
 	@Override
     public String toString()  {
-        return String.format("(%s, %s, %s, %s)", bloodpressure, id, sex, weight);
+        return String.format("(%s, %s, %s, %s)", id, sex, weight, bloodpressure);
     }
 }
